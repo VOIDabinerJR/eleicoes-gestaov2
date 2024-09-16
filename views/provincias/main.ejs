@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados Eleitorais</title>
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    </head>
+    
+    <style>
+
+.fas.fa-eye {
+    font-size: 20px;
+    color: #007bff; /* Cor azul */
+}
+
+.btn-eye {
+    background-color: #f8f9fa;
+    border: none;
+    color: #007bff;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-eye:hover {
+    background-color: #e2e6ea;
+}
+
+        /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #243673;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    
+    align-items: center;
+}
+
+header h1 {
+    font-size: 5em;
+    
+}
+
+.logo {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* Main Section */
+.main-section {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+.update-info, .digitalized-info {
+    margin: 5px 0;
+    color: #555;
+}
+
+.candidate-result {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.candidate {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.candidate img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.candidate span {
+    font-size: 1.2em;
+}
+
+.bar-container {
+    width: 60%;
+    background-color: #e9ecef;
+    margin-right: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.blue-bar {
+    background-color: #007bff;
+}
+
+.red-bar {
+    background-color: #dc3545;
+}
+
+.gray-bar {
+    background-color: #6c757d;
+}
+
+.votes {
+    font-size: 1.1em;
+    width: 20%;
+    text-align: right;
+}
+
+/* General Information */
+.general-info {
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.general-info h3 {
+    font-size: 1.5em;
+}
+/* Seção de Resultados */
+.resultados {
+    background-color: #333;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.resultados h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.resultados .button-container {
+    margin: 20px 0;
+}
+
+.resultados .btn-descargar {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin: 10px 0;
+}
+
+.resultados .btn-descargar.green {
+    background-color: #28a745;
+}
+
+.resultados .btn-descargar.blue {
+    background-color: #007bff;
+}
+
+.resultados .btn-descargar:hover {
+    opacity: 0.9;
+}
+
+.resultados p {
+    margin: 10px 0;
+}
+
+.resultados .hash {
+    font-size: 0.9em;
+    color: #ff6666;
+    word-wrap: break-word;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+.info-general {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+flex-direction: column;
+    margin: 20px 0;
+}
+.info-row {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.info-box {
+    text-align: center;
+    width: 150px;
+    margin: 10px;
+    
+}
+
+.info-box span {
+    display: block;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.info-box h3 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.large-text {
+    font-size: 3em;
+}
+
+.blue-text {
+    color: #00aaff;
+}
+
+/* Seção de busca por cédula */
+.search-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-section input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #0056b3;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Seção de Mesas */
+.mesas-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.mesas-section table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.mesas-section th,
+.mesas-section td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.mesas-section th {
+    background-color: #f4f4f4;
+    font-size: 1.1em;
+}
+
+.mesas-section td {
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>RESULTADOS</h1>
+        <div class="logo"><p>SALVE</p><p>MOZ</p> </div>
+    </header>
+
+    <section  class="main-section">
+        <h2>RESULTADOS - NACIONAIS</h2>
+        <h3>País: MOÇAMBIQUE</h3>
+        <p class="update-info">Criado em: <strong><%= provincias[0].creationDate %></strong></p>
+        <p class="update-info">Editado em: <strong><%= provincias[0].updateDate %></strong></p>
+        <p class="digitalized-info">Votos Totais: <strong><%= totalVotos%></strong></p>
+
+        <% votos.forEach(voto => { %>
+            <div class="candidate-result">
+                <div class="candidate">
+                    <img src="<%= voto.candidato_name %>" alt="<%= voto.candidato_name %>">
+                    <span><%= voto.candidato_nome %></span>
+                </div>
+                <div class="bar-container">
+                    <div class="bar <%= voto.percentagem > 50 ? 'blue-bar' : voto.percentagem > 25 ? 'red-bar' : 'gray-bar' %>" 
+                         style="width: <%= voto.percentagem %>%;">
+                        <%= voto.percentagem %>%
+                    </div>
+                </div>
+                <div class="votes"><%= voto.quantidade_votos.toLocaleString() %> votos</div>
+            </div>
+        <% }) %>
+
+       
+    </section>
+
+    <div class="info-general">
+        <h2>INFORMAÇÃO GERAL</h2>
+        <div class="info-row">
+            <div class="info-box">
+                <span>Atas Totais</span>
+                <h3>1</h3>
+            </div>
+            <div class="info-box">
+                <span>Atas Transmitidas</span>
+                <h3>1</h3>
+            </div>
+            <div class="info-box">
+                <span>Eleitores Registados</span>
+                <h3 class="large-text"><%= EleitoresRegistados %></h3>
+            </div>
+            <div class="info-box">
+                <span>Votantes</span>
+                <h3 class="large-text blue-text"><%= totalVotos %></h3>
+            </div>
+          
+        </div>
+    </div>
+    
+    
+    
+    <div class="mesas-section">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Provincias</th>
+                    <th>Nome</th>
+                    <th>ATAS</th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% provincias.forEach(provincia => { %>
+                    <tr>
+                        <td><%= provincia.id %></td>
+                        <td><%= provincia.nome %></td>
+                        <td>   <a href="/distritos/<%= provincia.id %>" class="btn-eye"><i class="fas fa-eye"></i> Ver</a>
+                        
+                    </tr>
+                    <% }) %>
+              
+                <tr>
+                    
+                        
+                   
+                   
+                    
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+    <div class="resultados">
+        <h3>Resultados Eleicoes Presidenciais - Moçambique 2024</h3>
+
+        <div class="button-container">
+            <a href="#" class="btn-descargar green">Descargar Resultados</a>
+            <p>Salvo em: <%= provincias[0].creationDate%></p>
+    
+        </div>
+
+       
+    </div>
+</body>
+</html>

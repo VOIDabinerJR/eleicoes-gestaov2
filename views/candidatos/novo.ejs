@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Candidato</title>
+</head>
+<body>
+    <h1>Adicionar Novo Candidato</h1>
+<form action="/candidatos/novo<%=queryParams%>" method="POST">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="text" name="partido" placeholder="Partido" required>
+    <button type="submit">Adicionar</button>
+</form><br><br><br>
+<a href="/<%=queryParams%>">Voltar para Inicio</a>
+
+</body>
+</html>

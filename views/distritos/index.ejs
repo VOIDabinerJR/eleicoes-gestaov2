@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Distritos</title>
+</head>
+<body>
+    <h1>Lista de Distritos</h1>
+<ul>
+    <% distritos.forEach(distrito => { %>
+        <li><a href="/localidades/<%= distrito.id %><%= queryParams %>"><%= distrito.nome %></a></li>
+    <% }) %>
+</ul>
+<a href="/distritos/<%= provincia_id %>/novo<%= queryParams %>">Adicionar Distrito</a><br><br><br>
+<a href="/<%=queryParams%>">Voltar para Inicio</a>
+
+</body>
+</html>

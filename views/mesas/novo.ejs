@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Mesa de Votação</title>
+</head>
+<body>
+    <h1>Adicionar Nova Mesa de Votação</h1>
+    
+    <form action="/mesas/<%= localidade_id %>/novo<%= queryParams %>" method="POST">
+        <label for="nome">Nome da Mesa:</label>
+        <input type="text" id="nome" name="nome" required>
+        
+    
+        <button type="submit">Adicionar</button>
+    </form><br><br><br>
+    <a href="/<%=queryParams%>">Voltar para Inicio</a>
+</body>
+</html>

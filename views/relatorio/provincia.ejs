@@ -1,0 +1,6 @@
+<h1>Relatório de Votos por Província</h1>
+<ul>
+    <% votos.forEach(voto => { %>
+        <li><%= voto.provincia %> - <%= voto.total_votos %> votos</li>
+    <% }) %>
+</ul>

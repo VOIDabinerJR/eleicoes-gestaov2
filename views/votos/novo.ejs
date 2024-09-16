@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Nova Ata</title>
+</head>
+<body>
+    <h1>Adicionar Nova Ata</h1>
+    <form action="/votos/<%= mesa_id %>/novo<%= queryParams %>" method="POST">
+        <label for="mesa">Mesa:</label>
+        <input type="text" id="mesa" name="mesa_id" value="<%= mesa_id %>" readonly>
+        
+        <div id="candidatos-votos">        
+        </div>
+        <label for="foto">Foto da Ata:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+        <button type="button" id="add-candidato">Adicionar Votos Candidato</button>
+        <button type="submit"  id="save-ata">Registar Ata</button>
+    </form><br><br><br>
+    <a href="/<%=queryParams%>">Voltar para Inicio</a>
+
+    <script>
+       
+        document.getElementById('add-candidato').addEventListener('click', () => {
+            updateCandidatoOptions();
+            const container = document.getElementById('candidatos-votos');
+            const index = container.getElementsByClassName('candidato').length;
+            const newCandidato = document.createElement('div');
+            newCandidato.classList.add('candidato');
+            newCandidato.innerHTML = `
+                <label for="candidato">Candidato:</label>
+                <select name="candidatos[${index}][id]" class="candidato-select" required>
+                     <option value="null">null</option>
+                    <% candidatos.forEach((candidato, idx) => { %>
+                        <option value="<%= candidato.id %>"><%= candidato.nome %></option>
+                    <% }) %>
+                </select>
+                <label for="quantidade_votos">Quantidade de Votos:</label>
+                <input type="number" name="candidatos[${index}][votos]" required>
+                <button type="button" class="remove-candidato">Remover</button>
+            `;
+            container.appendChild(newCandidato);
+
+            updateCandidatoOptions();
+        });
+
+        document.getElementById('candidatos-votos').addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-candidato')) {
+                e.target.parentElement.remove();
+                updateCandidatoOptions();
+            }
+        });
+        function updateCandidatoOptions() {
+            const selectedValues = Array.from(document.querySelectorAll('.candidato-select')).map(select => select.value);
+            const allOptions = Array.from(document.querySelectorAll('.candidato-select option'));
+            console.log(selectedValues)
+            console.log(allOptions)
+
+            let allSelected = true;
+            allOptions.forEach(option => {
+                if (!selectedValues.includes(option.value)) {
+                    option.style.display = 'block';
+                    allSelected = false;
+                } else {
+                    option.style.display = 'none';
+                    
+                }
+            });
+
+            // Desativa ou ativa o botão de adicionar mais candidatos
+            document.getElementById('add-candidato').disabled = allSelected;
+        }
+
+        
+    </script>
+</body>
+</html>

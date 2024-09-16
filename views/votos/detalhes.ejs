@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votos</title>
+</head>
+<body>
+    <h1>Lista de Atas</h1>
+    <ul>
+        <% votos.forEach(voto => { %>
+            <li> Nome: <%= voto.candidato_nome %>   - quantidade de Votos: <%= voto.quantidade_votos %> - Criado em:<%= voto.creationDate %>- Editado em: <%= voto.updateDate %></li>
+        <% }) %>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Nova Província</title>
+</head>
+<body>
+    <h1>Adicionar Nova Província</h1>
+<form action="/provincias/novo?<%=queryParams%>" method="POST">
+    <input type="text" name="nome" placeholder="Nome da Província" required>
+    <button type="submit">Adicionar</button>
+</form><br><br><br>
+<a href="/<%=queryParams%>">Voltar para Inicio</a>
+</body>
+</html>

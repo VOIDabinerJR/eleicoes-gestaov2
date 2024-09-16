@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votos</title>
+</head>
+<body>
+    <h1>Lista de Atas</h1>
+    <ul>
+        <% atas.forEach(ata => { %>
+            <li><a href="/votos/<%= ata.id %>/detalhes<%= queryParams %>">Detalhes ata:<%= ata.id %> </a> Mesa: <%= ata.mesa_id %>   - quantidade de Votos Total: <%= ata.quantidade_votos %> - <a href="<%= ata.foto_url %>">Foto da Ata</a> - Criado em:<%= ata.creationDate %>- Editado em: <%= ata.updateDate %></li>
+        <% }) %>
+    </ul>
+    <a href="/votos/<%= mesa_id %>/novo<%= queryParams %>">Adicionar Ata</a><br><br><br>
+    <a href="/<%=queryParams%>">Voltar para Inicio</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesas de Votação</title>
+</head>
+<body>
+    <h1>Lista de Mesas de Votação</h1>
+    
+    <ul>
+        <% mesas.forEach(mesa => { %>
+            
+            <li><a href="/votos/<%= mesa.id %><%= queryParams %>"><%= mesa.nome %></a>  </li>
+        <% }) %>
+    </ul>
+    <a href="/mesas/<%= localidade_id %>/novo<%= queryParams %>">Adicionar Nova Mesa</a><br><br><br>
+    <a href="/<%=queryParams%>">Voltar para Inicio</a>
+</body>
+</html>
